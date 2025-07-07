@@ -1,0 +1,11 @@
+chumpy==0.70
+smplx==0.1.28
+einops
+blobfile
+PyYaml
+tensorboard
+pytorch3d==0.3.0
+rtree
+open3d
+torch
+trimesh==3.23.5
