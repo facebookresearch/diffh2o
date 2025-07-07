@@ -24,7 +24,7 @@ If you use this code in your research, please cite:
 
 ## News
 
-📢 **30/May/24** - First release.
+📢 **7/July/25** - First release.
 
 ## Getting started
 
@@ -227,6 +227,6 @@ We build our codebase upon previous works. We want to thank the following resear
 [GMD](https://github.com/korrawe/guided-motion-diffusion), [GRAB](https://github.com/otaheri/GRAB), [MDM](https://github.com/GuyTevet/motion-diffusion-model), [guided-diffusion](https://github.com/openai/guided-diffusion), [MotionCLIP](https://github.com/GuyTevet/MotionCLIP), [text-to-motion](https://github.com/EricGuo5513/text-to-motion), [actor](https://github.com/Mathux/ACTOR), [joints2smpl](https://github.com/wangsen1312/joints2smpl), [MoDi](https://github.com/sigal-raab/MoDi).
 
 ## License
-This code is distributed under an [MIT LICENSE](LICENSE).
+This code is distributed under an [CC-BY-NC LICENSE](LICENSE).
 
 Note that our code depends on other libraries, including CLIP, MANO, SMPL-X, PyTorch3D, and uses datasets that each have their own respective licenses that must also be followed.
