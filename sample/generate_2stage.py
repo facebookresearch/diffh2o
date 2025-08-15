@@ -397,7 +397,7 @@ def main():
         if args.guidance:
             target = torch.zeros((args.num_samples,n_frames_post,1,obj_pose_idcs[1]),dtype=torch.float32).to(model_device)
             model_kwargs['y']['inpainting_mask'] = torch.zeros((args.num_samples,data_interaction.dataset.t2m_dataset.mean.shape[0],1,n_frames_post),dtype=torch.bool).to(model_device)
-            model_kwargs['y']['inpainting_mask'][:, ::obj_pose_idcs[0], :, :n_frames] = True
+            model_kwargs['y']['inpainting_mask'][:, :obj_pose_idcs[0], :, :n_frames] = True
             target[:,:n_frames, :, :obj_pose_idcs[0]] = torch.tensor(np.array(cur_motions_grasp_pose_space)[-1]).permute(0,2,1,3)[:,-n_frames:,:,:obj_pose_idcs[0]].to(model_device)
 
             target_mask = model_kwargs['y']['inpainting_mask'].permute(0,3,2,1)
