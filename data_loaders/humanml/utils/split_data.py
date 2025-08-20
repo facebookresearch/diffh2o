@@ -31,8 +31,8 @@ def process_files(folder_path, folder_path_contacts):
     np.save('separating_idcs.npy', np.array(separating_idcs))
 
 def find_transition(sequence, contact_array, dist_threshold, min_num_contacts=6):
-    start_cond_vert = sequence[:,-7] > dist_threshold ## vertical velocity
-    start_cond_hor = np.linalg.norm(sequence[:,-9:-7],axis=-1) > dist_threshold ## lateral velocity
+    start_cond_vert = sequence[:,-7] > dist_threshold ## vertical distance
+    start_cond_hor = np.linalg.norm(sequence[:,-9:-7],axis=-1) > dist_threshold ## lateral distance
     start_cond_contact = np.sum(contact_array, axis=1)>min_num_contacts
     try:
         threshold_idx = np.where(start_cond_vert+start_cond_hor+start_cond_contact) ## if there are no detected contacts, use positions only
