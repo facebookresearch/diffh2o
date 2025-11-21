@@ -300,6 +300,7 @@ def main():
             if args.eval_grasp_reference:
                 handedness_accuracy.extend(res["handedness"])
                 grasp_reference_error.extend(res["grasp_error"])
+                t_vels.extend(res["t_vels"])
 
             if args.physics_metrics:
                 all_iv.extend(res["inter_volume"])

@@ -166,6 +166,9 @@ def stich_pregrasp(data, pos_left, pos_right, global_orient_l, global_orient_r, 
         positions_left = data[..., : num_joints * 3].swapaxes(1,2)
         positions_right = data[..., num_joints * 3: num_joints * 3 * 2].swapaxes(1,2)
 
+        global_orient_l = rotation_6d_to_matrix(data[:,0,:,num_joints * 3 * 2 + 24: num_joints * 3 * 2 + 30])
+        global_orient_r = rotation_6d_to_matrix(data[:,0,:,num_joints * 3 * 2 + 54: num_joints * 3 * 2 + 60])
+
         wrist_pose_l = rotation_6d_to_matrix(data[:,0,:,num_joints * 3 * 2 + 24: num_joints * 3 * 2 + 30])
         wrist_pose_r = rotation_6d_to_matrix(data[:,0,:,num_joints * 3 * 2 + 54: num_joints * 3 * 2 + 60])
 

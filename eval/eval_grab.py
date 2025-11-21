@@ -138,7 +138,7 @@ class EvalNode:
 
 
 
-    def evaluate_seqs(self, samples, seq_names, seq_lens, samples_kf = None, eval_physics=False, eval_grasp_reference=False, num_reps=1, num_downsample_frames=15):
+    def evaluate_seqs(self, samples, seq_names, seq_lens, samples_kf = None, eval_physics=False, eval_grasp_reference=False, num_reps=1, num_downsample_frames=15, fps_data=20):
         inter_volume = []
         inter_depth = []
         inter_depth_max = []
@@ -208,7 +208,7 @@ class EvalNode:
                 handedness, grasp_error = self.evaluate_handedness_and_grasp_error(feature_vec, feature_vec_kf, hand_l, hand_r, hand_l_kf, hand_r_kf, obj_mesh)
                 handedness_list.append(handedness)
                 grasp_error_list.append(grasp_error.detach().cpu().numpy())
-                t_vel_list.append(t_vel)
+                t_vel_list.append(t_vel*fps_data)
                 print('handedness accuracy', np.mean(handedness_list))
                 print('grasp_error', np.mean(grasp_error_list))
                 print('transition_velocity', np.mean(t_vel_list))
@@ -392,7 +392,7 @@ class EvalNode:
         grasp_error = torch.mean(
                     torch.norm(
                         hand_joints[hand_joint_ids]
-                        - hand_joints_kf[hand_joint_ids]),
+                        - hand_joints_kf[hand_joint_ids], dim=-1),
                         axis=-1,
                     )
 
